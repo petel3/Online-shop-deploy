@@ -22,7 +22,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-ted^jc1^b4$sm2ek&9lk&b)7+v30r)aq$=84tk*p3ok!j*o4ug'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
+
 
 ALLOWED_HOSTS = ['g-popov-online-shop.herokuapp.com', '127.0.0.1']
 
@@ -81,10 +82,10 @@ WSGI_APPLICATION = 'Online_shop.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'Online_shop_db',
-        'USER': 'postgres',
-        'PASSWORD': 'postgres',
-        'HOST': '127.0.0.1',
+        'NAME': 'da19bgp35nrlt1',
+        'USER': 'zbhnggyivyaygi',
+        'PASSWORD': 'b27adef05832f386a7fd875bd998f1d9d702616bd96366f6f5268943340bd423',
+        'HOST': 'ec2-63-32-248-14.eu-west-1.compute.amazonaws.com',
         'PORT': '5432',
     }
 }
