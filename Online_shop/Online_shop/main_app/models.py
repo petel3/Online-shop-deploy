@@ -1,6 +1,6 @@
 from django.core.validators import MinValueValidator
 from django.db import models
-
+from cloudinary.models import CloudinaryField
 from Online_shop.accounts.models import ShopUser
 
 
@@ -33,10 +33,7 @@ class Jewelry(models.Model):
             MinValueValidator(0.0),
         )
     )
-    image = models.ImageField(
-        upload_to='mediafiles/',
-
-    )
+    image = CloudinaryField('image')
     user_key = models.ForeignKey(
         ShopUser, on_delete=models.CASCADE,
 
@@ -52,7 +49,7 @@ class Jewelry(models.Model):
 class Souvenir(models.Model):
     SOUVENIRS_NAME_MAX_LEN = 30
     MIN_QUANTITY = 1
-    LUXARY = 'Luxary'
+    LUXARY = 'Luxury'
     NORMAL = 'Normal'
     TYPES = [(x, x) for x in (LUXARY, NORMAL)]
     name = models.CharField(
@@ -76,10 +73,7 @@ class Souvenir(models.Model):
             MinValueValidator(0.0),
         )
     )
-    image = models.ImageField(
-        upload_to='mediafiles/',
-
-    )
+    image = CloudinaryField('image')
     user_key = models.ForeignKey(
         ShopUser, on_delete=models.CASCADE
     )
@@ -118,10 +112,7 @@ class Flower(models.Model):
             MinValueValidator(0.0),
         )
     )
-    image = models.ImageField(
-        upload_to='mediafiles/',
-
-    )
+    image = CloudinaryField('image')
     user_key = models.ForeignKey(
         ShopUser, on_delete=models.CASCADE
     )
@@ -163,10 +154,7 @@ class Plant(models.Model):
             MinValueValidator(0.0),
         )
     )
-    image = models.ImageField(
-        upload_to='mediafiles/',
-
-    )
+    image = CloudinaryField('image')
     user_key = models.ForeignKey(
         ShopUser, on_delete=models.CASCADE
     )
@@ -193,3 +181,5 @@ class AskQuotation(models.Model):
         ShopUser, on_delete=models.CASCADE
 
     )
+    def __str__(self):
+        return f"Quotation"
