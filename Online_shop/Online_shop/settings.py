@@ -79,6 +79,7 @@ WSGI_APPLICATION = 'Online_shop.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
+<<<<<<< HEAD
 
 #local database
 
@@ -96,6 +97,8 @@ WSGI_APPLICATION = 'Online_shop.wsgi.application'
 # production database
 
 
+=======
+>>>>>>> parent of 77c2f5e (commit)
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
