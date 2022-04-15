@@ -95,8 +95,9 @@ WSGI_APPLICATION = 'Online_shop.wsgi.application'
 #         'PORT': '5432',
 #     }
 # }
+#
+# production database
 
-#production database
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
