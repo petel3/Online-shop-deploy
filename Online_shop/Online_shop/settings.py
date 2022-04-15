@@ -13,8 +13,6 @@ import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-import cloudinary
-
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
@@ -24,12 +22,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-ted^jc1^b4$sm2ek&9lk&b)7+v30r)aq$=84tk*p3ok!j*o4ug'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = [
-                 'g-popov-online-shop.herokuapp.com',
-                '127.0.0.1',
-                 ]
+
+ALLOWED_HOSTS = ['g-popov-online-shop.herokuapp.com', '127.0.0.1']
 
 # Application definition
 
@@ -43,7 +39,6 @@ INSTALLED_APPS = [
     'crispy_forms',
     'Online_shop.main_app',
     'Online_shop.accounts',
-    'cloudinary',
 
 ]
 
@@ -83,6 +78,7 @@ WSGI_APPLICATION = 'Online_shop.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
+<<<<<<< HEAD
 #local database
 
 # DATABASES = {
@@ -97,6 +93,8 @@ WSGI_APPLICATION = 'Online_shop.wsgi.application'
 # }
 #
 # production database
+=======
+>>>>>>> parent of 77c2f5e (commit)
 
 DATABASES = {
     'default': {
@@ -142,7 +140,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 
-# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+
 
 MEDIA_ROOT = ''
 MEDIA_URL = ''
@@ -153,18 +153,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'accounts.ShopUser'
 
-BASE_DIR_2 = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR_2, 'static'),
+    os.path.join(BASE_DIR, 'static'),
 )
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-cloudinary.config(
-  cloud_name = "hyp3qtcs8",
-  api_key = "184883281655594",
-  api_secret = "mhxXuHawZEciskldtYL1TZzDc8I"
-)

@@ -12,7 +12,7 @@ class PlantsView(ListView):
     context_object_name = 'plants'
 
 
-class PlantsCreateView(LoginRequiredMixin,CreateView):
+class PlantsCreateView(CreateView):
     def get(self, request, *args, **kwargs):
         form_class = CreatePlantsForm()
         template_name = 'plants/plants_create.html'
@@ -23,15 +23,14 @@ class PlantsCreateView(LoginRequiredMixin,CreateView):
         plant = request.POST
         image = request.FILES
         Plant.objects.create(name=plant['name'], quantity=plant['quantity'], type=plant['type']
-                             , description=plant['description'], price=plant['price'], image=image['image'],
-                             user_key=user)
+                              , description=plant['description'], price=plant['price'], image=image['image'],
+                              user_key=user)
         template_name = 'plants'
         return redirect(template_name)
 
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
-
 
 class PlantsDetailsView(DetailView):
     model = Plant
@@ -45,7 +44,7 @@ class PlantsDetailsView(DetailView):
         return context
 
 
-class PlantsEditView(LoginRequiredMixin,UpdateView):
+class PlantsEditView(UpdateView):
     form_class = EditPlantsForm
     template_name = 'plants/plants_edit.html'
     queryset = Plant.objects.all()
